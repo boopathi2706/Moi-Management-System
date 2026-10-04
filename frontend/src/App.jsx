@@ -1983,21 +1983,6 @@ export default function App() {
               zIndex: 100,
             }}
           >
-            <button
-              className="mobile-menu-btn"
-              onClick={() => setSidebarOpen((p) => !p)}
-              style={{
-                background: "none",
-                border: "none",
-                fontSize: 22,
-                cursor: "pointer",
-                color: "#374151",
-                minHeight: 40,
-                padding: "0 6px",
-              }}
-            >
-              ☰
-            </button>
             <div style={{ flex: 1 }}>
               <h1
                 style={{
