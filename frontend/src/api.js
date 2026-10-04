@@ -1,4 +1,9 @@
-const API_BASE_URL = (import.meta.env.VITE_API_URL || "http://localhost:5000/api").replace(/\/$/, "");
+let rawUrl = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+rawUrl = rawUrl.trim().replace(/\/$/, "");
+if (!rawUrl.endsWith("/api")) {
+  rawUrl += "/api";
+}
+const API_BASE_URL = rawUrl;
 
 // Helper to get auth header from local storage
 const getAuthHeaders = () => {
