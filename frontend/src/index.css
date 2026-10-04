@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700;800&display=swap');
+
+:root {
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-top: env(safe-area-inset-top, 0px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans Tamil', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #f8fafc;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+
+/* Touch target & inputs accessibility */
+input, select, textarea, button {
+  font-family: inherit;
+  font-size: 16px; /* Prevents auto-zoom on iOS */
+  touch-action: manipulation;
+}
+
+button {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 44px;
+}
+
+button:hover {
+  filter: brightness(1.05);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+input, select, textarea {
+  transition: all 0.2s ease;
+  min-height: 44px;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #d97706 !important;
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.18);
+  background-color: #ffffff !important;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Hover highlighter for tables */
+table tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+table tbody tr:hover {
+  background-color: #fffbeb !important;
+}
+
+/* Mobile & Desktop specific helpers */
+.bottom-nav-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
+  padding-bottom: env(safe-area-inset-bottom, 8px);
+}
+
+.mobile-cards-view {
+  display: none;
+}
+
+.desktop-table-view {
+  display: block;
+}
+
+.mobile-sheet-handle {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .bottom-nav-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 64px;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .page-container {
+    padding-bottom: calc(84px + env(safe-area-inset-bottom, 16px)) !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    padding-top: 16px !important;
+  }
+
+  .toast-container {
+    bottom: calc(80px + env(safe-area-inset-bottom, 12px)) !important;
+    right: 14px !important;
+    left: 14px !important;
+  }
+
+  .toast-item {
+    max-width: 100% !important;
+    text-align: center;
+  }
+
+  /* Modal turns into a Bottom Sheet on Mobile */
+  .modal-overlay {
+    align-items: flex-end !important;
+    padding: 0 !important;
+  }
+
+  .modal-content {
+    border-radius: 24px 24px 0 0 !important;
+    max-height: 88vh !important;
+    padding: 16px 20px 32px !important;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.25) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .mobile-sheet-handle {
+    display: flex;
+  }
+
+  .desktop-sidebar {
+    display: none !important;
+  }
+
+  .desktop-table-view {
+    display: none !important;
+  }
+
+  .mobile-cards-view {
+    display: flex !important;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .filter-row {
+    flex-direction: column !important;
+  }
+
+  .filter-row input, .filter-row select {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .section-tab-bar {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+  }
+
+  .new-record-btn {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-top: 8px !important;
+    justify-content: center !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .desktop-sidebar {
+    display: flex !important;
+  }
+  .mobile-menu-btn {
+    display: none !important;
+  }
+  .bottom-nav-bar {
+    display: none !important;
+  }
+}
+
+/* Extra small screen tweaks (320px - 375px) */
+@media (max-width: 375px) {
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
